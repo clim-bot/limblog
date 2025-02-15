@@ -11,6 +11,7 @@
         "src": "/(.*)",
         "dest": "config.ru"
       }
-    ]
+    ],
+    "buildCommand": "apk add --update --no-cache yaml-dev libyaml && bundle install"
   }
   
