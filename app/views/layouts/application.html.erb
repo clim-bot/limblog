@@ -1,30 +1,232 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for(:title) || "Limblog" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html class="h-full scroll-smooth bg-white antialiased">
+<head>
+  <title><%= content_for(:title) || "Christopher Lim - Developer | QA Engineer | Co-Founder" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#FFFFFF">
+  
+  <%# Open Graph Tags -%>
+  <meta property="og:title" content="Christopher Lim - Developer | QA Engineer | Co-Founder" />
+  <meta property="og:description" content="Building, testing, and launching great software." />
+  <meta property="og:image" content="<%= image_path('profile_image.jpg') %>" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:type" content="website" />
+  
+  <%# Twitter Card Tags -%>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Christopher Lim - Developer | QA Engineer | Co-Founder" />
+  <meta name="twitter:description" content="Building, testing, and launching great software." />
+  <meta name="twitter:image" content="<%= image_path('profile_image.jpg') %>" />
+  
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= yield :head %>
 
-    <%= yield :head %>
+  <%= favicon_link_tag "favicon.png" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+<body class="flex h-full flex-col bg-white">
+  <!-- 🌟 Header & Navigation -->
+  <header class="sticky top-0 bg-white shadow-md py-4 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-semibold text-gray-800">Christopher Lim</span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#about" class="text-gray-700 hover:underline decoration-blue-500">About</a>
+          <a href="#projects" class="text-gray-700 hover:underline decoration-blue-500">Projects</a>
+          <a href="#contact" class="text-gray-700 hover:underline decoration-blue-500">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+  <!-- 🌟 Hero Section -->
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <section class="pb-16 pt-20 lg:pt-32">
+      <h1 class="mx-auto max-w-4xl text-center text-5xl font-extrabold leading-tight text-slate-900 sm:text-6xl">
+        <span class="text-blue-600 border-b-4 border-blue-500 pb-2">
+          Christopher Lim
+        </span> 
+        <br class="hidden sm:block">
+        <span class="text-gray-700">Developer | QA Engineer | Co-Founder</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+        Building, testing, and launching great software.
+      </p>
+      <div class="mt-8 flex justify-center space-x-4">
+        <a href="#projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition transform hover:scale-105">
+          🚀 View My Work
+        </a>
+        <a href="#contact" class="bg-black text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800 transition transform hover:scale-105">
+          📩 Contact Me
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <!-- 🌟 About Me Section -->
+  <section id="about" class="py-20 text-center bg-gray-100">
+    <h2 class="text-4xl font-bold text-gray-900">About Me</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+      Passionate software developer and QA engineer with a background in building scalable applications, automated testing, and leading startups.
+    </p>
+    <div class="mt-6 flex justify-center space-x-6 text-6xl">
+      🐍 <!-- Python -->
+      💎 <!-- Ruby on Rails -->
+      🧪 <!-- Cypress (Test Tube) -->
+      🤖 <!-- Selenium (Robot) -->
+    </div>
+  </section>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-  </body>
+  <!-- 🌟 Projects Section -->
+  <section id="projects" class="py-20 text-center">
+    <h2 class="text-4xl font-bold text-gray-900">My Projects</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Here are some of my key projects.</p>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+      
+      <!-- Project Card -->
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">📱 App Influence</h3>
+        <p class="text-gray-600">A platform connecting app developers with influencers to boost downloads.</p>
+        <a href="https://appinfluence.app/" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🎮 Pygame Dungeon Crawler</h3>
+        <p class="text-gray-600">A pixel-art roguelike built with Python and Pygame.</p>
+        <a href="https://github.com/clim-bot/dungeon_crawler" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🚂 Python Oregon Trail Game</h3>
+        <p class="text-gray-600">A text-based and graphical remake of the classic Oregon Trail game in Python.</p>
+        <a href="https://oregon-trail-flask.vercel.app/" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🎓 WGU Capstone Project</h3>
+        <p class="text-gray-600">Final capstone project for WGU, demonstrating advanced Java and software engineering skills.</p>
+        <a href="https://gitlab.com/wgu-java-projects/capstone" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">📰 Webbit</h3>
+        <p class="text-gray-600">A Reddit Clone built with Ruby on Rails.</p>
+        <a href="https://github.com/clim-bot/webbit" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🔐 Python Auth Service</h3>
+        <p class="text-gray-600">A secure authentication microservice in Python.</p>
+        <a href="https://github.com/clim-bot/python-auth-service" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🛡️ Cyber Security Portfolio</h3>
+        <p class="text-gray-600">A showcase of my cybersecurity research and implementations.</p>
+        <a href="https://github.com/clim-bot/cybersecurity-portfolio" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🤖 Selenium TestNG Boilerplate</h3>
+        <p class="text-gray-600">A TestNG automation boilerplate for Selenium.</p>
+        <a href="https://github.com/clim-bot/selenium-automation-boilerplate" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🛠️ Rest Assured API Boilerplate</h3>
+        <p class="text-gray-600">A REST API testing boilerplate using Rest Assured.</p>
+        <a href="https://github.com/clim-bot/restassured-api-boilerplate" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">📡 Newman API Test</h3>
+        <p class="text-gray-600">API testing automation with Newman and Postman.</p>
+        <a href="https://gitlab.com/lim-services/newman-test" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🔗 Pactflow Consumer</h3>
+        <p class="text-gray-600">Contract testing implementation for a consumer service.</p>
+        <a href="https://gitlab.com/lim-services/pactflow-consumer" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">🔗 Pactflow Provider</h3>
+        <p class="text-gray-600">Contract testing implementation for a provider service.</p>
+        <a href="https://gitlab.com/lim-services/pactflow-provider-service" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">📊 Cypress Neat CSV</h3>
+        <p class="text-gray-600">A utility for handling CSV files in Cypress.</p>
+        <a href="https://github.com/clim-bot/cypress-neat-csv" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">📝 Cypress Reporter POC</h3>
+        <p class="text-gray-600">Proof of concept for custom reporting in Cypress.</p>
+        <a href="https://github.com/clim-bot/cypress-reporter-poc" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+      <div class="p-6 border rounded-lg shadow-md bg-white transform transition duration-300 hover:scale-105 hover:shadow-lg">
+        <h3 class="text-lg font-semibold">✅ Cypress Testrails POC</h3>
+        <p class="text-gray-600">A proof of concept for integrating Cypress with TestRails.</p>
+        <a href="https://github.com/clim-bot/cypress-testrails" class="mt-3 inline-block text-blue-500 font-semibold hover:underline">View Project</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 🌟 Contact Section -->
+  <section id="contact" class="py-20 bg-gray-100 text-center">
+    <h2 class="text-4xl font-bold text-gray-900">Let's Connect</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+      Whether it's for collaboration, job opportunities, or just to say hi, feel free to reach out!
+    </p>
+
+    <!-- Contact Links -->
+    <div class="mt-8 flex flex-wrap justify-center gap-6">
+      
+      <a href="https://www.linkedin.com/in/kurisulim/" target="_blank" 
+        class="flex items-center space-x-3 bg-white shadow-md rounded-lg px-6 py-3 font-medium transition transform hover:scale-105 hover:shadow-lg hover:bg-blue-100">
+        <span class="text-blue-600 text-xl">🔗</span>
+        <span class="text-blue-600">LinkedIn</span>
+      </a>
+
+      <a href="https://github.com/clim-bot" target="_blank" 
+        class="flex items-center space-x-3 bg-white shadow-md rounded-lg px-6 py-3 font-medium transition transform hover:scale-105 hover:shadow-lg hover:bg-gray-200">
+        <span class="text-gray-900 text-xl">🐙</span>
+        <span class="text-gray-900">GitHub</span>
+      </a>
+
+      <a href="https://gitlab.com/Christopher.Lim" target="_blank" 
+        class="flex items-center space-x-3 bg-white shadow-md rounded-lg px-6 py-3 font-medium transition transform hover:scale-105 hover:shadow-lg hover:bg-orange-200">
+        <span class="text-orange-600 text-xl">🦊</span>
+        <span class="text-orange-600">GitLab</span>
+      </a>
+
+      <a href="mailto:toffer.lim87@gmail.com" 
+        class="flex items-center space-x-3 bg-white shadow-md rounded-lg px-6 py-3 font-medium transition transform hover:scale-105 hover:shadow-lg hover:bg-red-100">
+        <span class="text-red-600 text-xl">✉️</span>
+        <span class="text-red-600">Email Me</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- 🌟 Footer -->
+  <footer class="bg-gray-100 py-10 text-center">
+    <p class="text-sm text-gray-600">&copy; <%= Time.now.year %> Christopher Lim. All rights reserved.</p>
+  </footer>
+</body>
 </html>

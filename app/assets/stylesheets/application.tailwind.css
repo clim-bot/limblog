@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 2rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 2.5rem;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 3.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1.1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  --radius-4xl: 2rem;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-lexend);
+
+  --container-2xl: 40rem;
+}
+
+.selectedTab {
+  @apply bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10;
+}
+
+.selectedTab button {
+  @apply text-blue-500 lg:text-white;
+}
+
+/* Change cursor to pointer on hover */
+a:hover, button:hover, [data-faq-target="question"]:hover {
+  cursor: pointer;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.blinking-cursor {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 2px;
+  animation: blink 0.8s infinite;
+}
